@@ -42,6 +42,7 @@ GROUP BY p.productCode, p.productName
 order by tempo_medio_consegna_giorni desc
 limit 5;
 
+--------------------------------------------------------------------------------
 
 ANALISI 2: prezzo totale dell'ordine 
 
@@ -87,6 +88,7 @@ GROUP BY p.productCode, p.productName
 ORDER BY prezzo_totale desc
 limit 5;
 
+---------------------------------------------------------------------------
 
 ANALISI 3: media prodotti diversi per ordine
 
@@ -127,6 +129,7 @@ limit 5;
 
 
 -PER PRODOTTO:
+
 SELECT 
     p.productCode,
     p.productName,
@@ -142,6 +145,10 @@ GROUP BY p.productCode, p.productName
 ORDER BY media_prodotti_diversi desc
 limit 5;
 
+
+
+----------------------------------------------------------------------------
+
 ANALISI 4: profitto (in media) per ogni prodotto in un anno (priceEach - buyPrice) 
 
 SELECT 
@@ -155,17 +162,6 @@ JOIN orders o ON od.orderNumber = o.orderNumber
 GROUP BY p.productCode, p.productName, anno
 ORDER BY profitto_totale_anno   DESC 
 limit 5;
-
-
-ANALISI 5:  numero di "scala" vendute
-
-SELECT 
-    p.productScale,
-    SUM(od.quantityOrdered) AS numero_vendite
-FROM products p
-JOIN orderdetails od ON p.productCode = od.productCode
-GROUP BY p.productScale
-ORDER BY numero_vendite DESC;
 
 
 
