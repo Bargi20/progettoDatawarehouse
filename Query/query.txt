@@ -154,8 +154,7 @@ JOIN orderdetails od ON p.productCode = od.productCode
 JOIN orders o ON od.orderNumber = o.orderNumber
 GROUP BY p.productCode, p.productName, anno
 ORDER BY profitto_totale_anno   DESC 
-limit 5
-;
+limit 5;
 
 
 ANALISI 5:  numero di "scala" vendute
